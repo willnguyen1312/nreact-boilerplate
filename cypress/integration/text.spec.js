@@ -7,6 +7,6 @@ context('Text', () => {
   });
 
   it('should verify the content existed', () => {
-    cy.queryByText('Hello there').should('exist');
+    cy.queryByText('Home').should('exist');
   });
 });
