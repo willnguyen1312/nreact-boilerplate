@@ -12,14 +12,16 @@
     "react-scripts": "2.1.8",
     "rebass": "^3.1.0",
     "styled-components": "^4.2.0",
-    "typescript": "3.3.4000"
+    "typescript": "^3.3.4000"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:ci": "CI=true react-scripts test --coverage",
-    "eject": "react-scripts eject",
+    "test:unit": "react-scripts test",
+    "test:unit:ci": "CI=true react-scripts test --coverage",
+    "test:e2e": "cypress open",
+    "test:e2e:ci": "start-server-and-test start http://localhost:3000 cy:run",
+    "cy:run": "cypress run",
     "lint": "tslint --project tsconfig.json"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
     "react-testing-library": "^6.0.3",
+    "start-server-and-test": "^1.7.12",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^3.6.0"

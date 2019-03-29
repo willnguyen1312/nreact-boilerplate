@@ -2,20 +2,31 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8
+      - image: cypress/base:8
+        environment:
+          ## this enables colors in the output
+          TERM: xterm
+    working_directory: ~/app
     steps:
       - checkout
-      - restore_cache: # special step to restore the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          keys:
+            - v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+            - v1-deps-{{ .Branch }}
+            - v1-deps
       - run:
-          name: Setup Dependencies
-          command: npm install
+          name: Install Dependencies
+          command: yarn install --frozen-lockfile
+      - save_cache:
+          key: v1-deps-{{ .Branch }}-{{ checksum "package.json" }}
+          paths:
+            - ~/.cache ## cache both yarn and Cypress!
       - run:
           name: Linting
           command: yarn lint
       - run:
           name: Unit Testing
-          command: CI=true yarn test:ci
+          command: CI=true yarn test:unit:ci
       - run:
           name: E2E Testing
-          command: yarn test:e2e
+          command: yarn test:e2e:ci
