@@ -1,3 +1,4 @@
+/* tslint:disable */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -128,9 +129,7 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
       }
     })
     .catch(() => {
-      console.log(
-        'No internet connection found. App is running in offline mode.'
-      );
+      console.log('No internet connection found. App is running in offline mode.');
     });
 }
 
