@@ -12,10 +12,12 @@
     "axios-extensions": "^3.0.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-error-boundary": "^1.2.5",
     "react-scripts": "2.1.8",
     "rebass": "^3.1.0",
     "styled-components": "^4.2.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.3.4000",
+    "unstated": "^2.1.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=./src react-scripts start",
@@ -43,7 +45,8 @@
     "start-server-and-test": "^1.7.12",
     "tslint": "^5.14.0",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^3.6.0"
+    "tslint-react": "^3.6.0",
+    "utility-types": "^3.4.1"
   },
   "browserslist": [
     ">0.2%",
