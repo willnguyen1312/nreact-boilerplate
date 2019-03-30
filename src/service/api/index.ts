@@ -4,7 +4,7 @@ import {
   throttleAdapterEnhancer,
 } from 'axios-extensions';
 import { SERVER_URL_BASE as baseURL } from 'configs';
-import { HTTPMethods } from 'service/apiEntries';
+import { HTTPMethods } from 'service/api/entryPoints';
 import { IRequestOption } from 'types/internal';
 import { getAuthTOken as getAuthToken } from 'utils/auth';
 import { logError } from 'utils/logs';

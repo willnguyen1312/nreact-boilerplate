@@ -1,5 +1,5 @@
 import { request } from 'service/api';
-import { articleEntryPoint } from 'service/apiEntries';
+import { articleEntryPoint } from 'service/api/entryPoints';
 import { IRequestOption } from 'types/internal';
 import { IArticle } from '../types';
 

@@ -14,3 +14,10 @@ export const articleEntryPoint: IAPIEntryPoint = {
   method: HTTPMethods.GET,
   auth: false,
 };
+
+// photos services
+export const photosEntryPoint: IAPIEntryPoint = {
+  url: '/photos',
+  method: HTTPMethods.GET,
+  auth: false,
+};

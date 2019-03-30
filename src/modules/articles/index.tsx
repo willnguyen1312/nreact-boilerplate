@@ -7,14 +7,14 @@ import { IArticle } from './types';
 const Articles: any = (_: RouteComponentProps) => {
   const [articles, setArticles] = useState();
 
-  async function fetchArticles() {
-    const data = await fetchArticlesService();
+  async function loadArticles() {
+    const newArticles = await fetchArticlesService();
 
-    setArticles(data);
+    setArticles(newArticles);
   }
 
   useEffect(() => {
-    fetchArticles();
+    loadArticles();
   }, []);
 
   return articles ? (
