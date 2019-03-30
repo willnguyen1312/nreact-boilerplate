@@ -17,7 +17,7 @@
   },
   "scripts": {
     "start": "cross-env NODE_PATH=./src react-scripts start",
-    "build": "react-scripts build",
+    "build": "cross-env NODE_PATH=./src react-scripts build",
     "test:unit": "react-scripts test --modulePaths=src",
     "test:unit:ci": "CI=true react-scripts test --modulePaths=src --coverage",
     "test:e2e": "cypress open",
