@@ -12,8 +12,12 @@
     "axios-extensions": "^3.0.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
     "rebass": "^3.1.0",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0",
     "typescript": "^3.3.4000"
   },
@@ -29,6 +33,7 @@
   },
   "devDependencies": {
     "@types/reach__router": "^1.2.3",
+    "@types/react-redux": "^7.0.6",
     "@types/rebass": "^3.0.3",
     "@types/styled-components": "^4.1.12",
     "@types/webpack-env": "^1.13.9",
