@@ -8,6 +8,8 @@
     "@types/node": "11.12.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
+    "axios": "^0.18.0",
+    "axios-extensions": "^3.0.5",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "2.1.8",
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "@types/reach__router": "^1.2.3",
+    "@types/rebass": "^3.0.3",
     "@types/styled-components": "^4.1.12",
     "@types/webpack-env": "^1.13.9",
     "cross-env": "^5.2.0",
@@ -58,5 +61,8 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "resolutions": {
+    "@types/react": "16.8.10"
   }
 }
