@@ -60,12 +60,12 @@ export default function Counter() {
         <div>
           <span>Count: {counter.state.count}</span>
           <h1>Sync</h1>
-          <button onClick={incrementCallback(app, counter)}>-</button>
-          <button onClick={decrementCallback(app, counter)}>+</button>
+          <button onClick={incrementCallback(app, counter)}>+</button>
+          <button onClick={decrementCallback(app, counter)}>-</button>
 
           <h1>Async</h1>
-          <button onClick={decrementAsyncCallback(app, counter)}>-</button>
           <button onClick={incrementAsyncCallback(app, counter)}>+</button>
+          <button onClick={decrementAsyncCallback(app, counter)}>-</button>
         </div>
       )}
     </Subscribe>
