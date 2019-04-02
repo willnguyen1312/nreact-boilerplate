@@ -15,6 +15,7 @@
     "react-scripts": "2.1.8",
     "rebass": "^3.1.0",
     "styled-components": "^4.2.0",
+    "styled-theming": "^2.2.0",
     "typescript": "^3.3.4000"
   },
   "scripts": {
@@ -31,6 +32,7 @@
     "@types/reach__router": "^1.2.3",
     "@types/rebass": "^3.0.3",
     "@types/styled-components": "^4.1.12",
+    "@types/styled-theming": "^2.2.0",
     "@types/webpack-env": "^1.13.9",
     "cross-env": "^5.2.0",
     "cypress": "^3.2.0",
