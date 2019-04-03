@@ -5,7 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@types/jest": "24.0.11",
-    "@types/node": "11.12.0",
+    "@types/node": "11.13.0",
     "@types/react": "16.8.10",
     "@types/react-dom": "16.8.3",
     "axios": "^0.18.0",
@@ -15,7 +15,7 @@
     "react-scripts": "2.1.8",
     "rebass": "^3.1.0",
     "styled-components": "^4.2.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.4.1"
   },
   "scripts": {
     "start": "cross-env NODE_PATH=./src react-scripts start",
@@ -25,9 +25,20 @@
     "test:e2e": "cypress open",
     "test:e2e:ci": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run",
-    "lint": "tslint --project tsconfig.json"
+    "lint": "tslint --project tsconfig.json",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-info": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addons": "^4.1.11",
+    "@storybook/react": "^4.1.11",
+    "@types/storybook__react": "^4.0.1",
+    "babel-loader": "^8.0.5",
+    "react-docgen-typescript-loader": "^3.0.1",
     "@types/reach__router": "^1.2.3",
     "@types/rebass": "^3.0.3",
     "@types/styled-components": "^4.1.12",
@@ -39,11 +50,11 @@
     "jest-dom": "^3.1.3",
     "lint-staged": "^8.1.5",
     "prettier": "^1.16.4",
-    "react-testing-library": "^6.0.3",
-    "start-server-and-test": "^1.7.12",
-    "tslint": "^5.14.0",
+    "react-testing-library": "^6.0.4",
+    "start-server-and-test": "^1.7.13",
+    "tslint": "^5.15.0",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^3.6.0"
+    "tslint-react": "^4.0.0"
   },
   "browserslist": [
     ">0.2%",
