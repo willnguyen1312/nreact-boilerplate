@@ -24,5 +24,4 @@ yarn-error.log*
 
 # Custom
 _
-.env
 storybook-static
