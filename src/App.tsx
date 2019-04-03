@@ -8,6 +8,7 @@ const Articles = React.lazy(() => import('./pages/Articles'));
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Profile = React.lazy(() => import('./pages/Profile'));
+const UseGraphql = React.lazy(() => import('./pages/Graphql'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
 const Nav = styled.nav`
@@ -49,12 +50,14 @@ const App = () => {
           <NavLink to="/">Home</NavLink>{' '}
           <NavLink to="/articles">Articles</NavLink>{' '}
           <NavLink to="/login">Login</NavLink>{' '}
+          <NavLink to="/useGraphql">UseGraphql</NavLink>{' '}
         </Nav>
 
         <Router>
           <Home path="/" />
           <Login path="login" />
           <Articles path="articles" />
+          <UseGraphql path="/useGraphql" />
           <AuthRoute as={Profile} path="profile" />
 
           <NotFound default={true} />
