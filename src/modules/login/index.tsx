@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 const Login: FunctionComponent<RouteComponentProps> = () => {
-  const { authenticateUser, user } = useContext<IUserContext>(UserContext);
+  const { authenticateUser } = useContext<IUserContext>(UserContext);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

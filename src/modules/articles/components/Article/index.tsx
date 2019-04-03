@@ -1,11 +1,11 @@
-import { IArticle } from 'modules/articles/types';
+import { ArticleType } from 'modules/articles/types';
 import React from 'react';
 import { Box, Flex, Text } from 'rebass';
 
-const Article: React.FC<{ data: IArticle }> = ({
+const Article: React.FC<{ data: ArticleType }> = ({
   data,
 }: {
-  data: IArticle;
+  data: ArticleType;
 }) => {
   return (
     <Flex flexDirection="column">

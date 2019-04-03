@@ -1,10 +1,10 @@
-import { RouteComponentProps } from '@reach/router';
 import React, { useEffect, useState } from 'react';
 import Article from './components/Article';
 import { fetchArticlesService } from './helpers/service';
-import { IArticle } from './types';
+import { ArticleType } from './types';
 
-const Articles: any = (_: RouteComponentProps) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Articles: any = () => {
   const [articles, setArticles] = useState();
 
   async function fetchArticles() {
@@ -18,7 +18,7 @@ const Articles: any = (_: RouteComponentProps) => {
   }, []);
 
   return articles ? (
-    (articles as IArticle[]).map(({ id, ...rest }) => {
+    (articles as ArticleType[]).map(({ id, ...rest }) => {
       return <Article key={id} data={rest} />;
     })
   ) : (

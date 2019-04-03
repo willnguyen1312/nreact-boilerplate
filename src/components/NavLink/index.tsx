@@ -1,7 +1,7 @@
 import { Link } from '@reach/router';
 import React from 'react';
 
-const NavLink = (props: any) => {
+const NavLink = props => {
   const getPropsCallBack = ({ isCurrent }) => {
     return {
       style: {

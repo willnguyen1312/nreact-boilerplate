@@ -16,31 +16,31 @@ const Nav = styled.nav`
   }
 `;
 
-interface IUser {
+interface User {
   firstName: string;
   lastName: string;
 }
 
-export interface IUserContext {
-  user: IUser;
-  authenticateUser: (user: IUser) => void;
+export interface UserContext {
+  user: User | undefined;
+  authenticateUser: (user: User) => void;
 }
 
-export const UserContext = React.createContext<IUserContext | any>('user');
+export const UserContext = React.createContext<UserContext | null>(null);
 
-interface IUser {
+interface User {
   firstName: string;
   lastName: string;
 }
 
 const App = () => {
-  const [user, setUser] = useState<IUser>();
+  const [user, setUser] = useState<User>();
 
-  const authenticateUser = (newUser: IUser) => {
+  const authenticateUser = (newUser: User) => {
     setUser(newUser);
   };
 
-  const userContextValue = { user, authenticateUser };
+  const userContextValue: UserContext = { user, authenticateUser };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

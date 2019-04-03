@@ -3,5 +3,10 @@
     "source.fixAll": true,
     "source.organizeImports": true
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "eslint.enable": true,
+  "eslint.validate": [
+    { "language": "typescript", "autoFix": true },
+    { "language": "typescriptreact", "autoFix": true }
+  ]
 }

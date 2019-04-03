@@ -4,14 +4,14 @@ interface Map<T> {
   [key: string]: T;
 }
 
-interface IAPIEntryPoint {
+interface APIEntryPoint {
   url: string;
   method: string;
   auth: boolean;
 }
 
-interface IRequestOption {
-  entryPoint: IAPIEntryPoint;
+interface RequestOption {
+  entryPoint: APIEntryPoint;
   params?: Map<number | string | boolean>;
   urlParam?: string;
   cancelToken?: CancelToken;
