@@ -1,4 +1,4 @@
-import { IAPIEntryPoint } from 'types/internal';
+import { APIEntryPoint } from 'types/internal';
 
 export const HTTPMethods = {
   GET: 'GET',
@@ -9,7 +9,7 @@ export const HTTPMethods = {
 };
 
 // article services
-export const articleEntryPoint: IAPIEntryPoint = {
+export const articleEntryPoint: APIEntryPoint = {
   url: '/posts',
   method: HTTPMethods.GET,
   auth: false,

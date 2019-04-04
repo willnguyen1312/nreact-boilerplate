@@ -25,6 +25,9 @@ jobs:
           name: Linting
           command: yarn lint
       - run:
+          name: Typing
+          command: yarn type-check
+      - run:
           name: Unit Testing
           command: CI=true yarn test:unit:ci
       - run:
