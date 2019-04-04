@@ -1,6 +1,6 @@
 import { Router } from '@reach/router';
 import ErrorBoudaryFallback from 'components/ErrorBoudaryFallback';
-import Nav from 'layout/Nav';
+import Nav from 'layouts/Nav';
 import AuthRoute from 'modules/auth';
 import React, { Suspense, useState } from 'react';
 import ErrorBoundary from 'react-error-boundary';

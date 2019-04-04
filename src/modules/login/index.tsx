@@ -19,7 +19,7 @@ interface LoginFormValues {
   password: string;
 }
 
-const Login: FunctionComponent<RouteComponentProps> = () => {
+const Login: FunctionComponent<RouteComponentProps> = ({ navigate, path }) => {
   const { authenticateUser } = useContext(UserContext) as UserContextType;
 
   return (
@@ -31,6 +31,9 @@ const Login: FunctionComponent<RouteComponentProps> = () => {
         onSubmit={async (values, { setSubmitting }) => {
           const { email, password } = values;
           await authenticateUser(email, password);
+          if (path && path.includes('login') && navigate) {
+            navigate('/');
+          }
           setSubmitting(false);
         }}
       >
