@@ -24,7 +24,7 @@ const Login: FunctionComponent<RouteComponentProps> = () => {
         alert('Oho');
       }
     },
-    [username, password]
+    [username, password, authenticateUser]
   );
 
   return (
