@@ -15,7 +15,8 @@ const Nav = () => {
     <NavWrapper>
       <NavLink to="/">Home</NavLink>{' '}
       {!user && <NavLink to="/login">Login</NavLink>}
-      {user && <NavLink to="/profile">Profile</NavLink>}
+      {user && <NavLink to="/profile">Profile</NavLink>}{' '}
+      <NavLink to="/unstated">Unstated</NavLink>
     </NavWrapper>
   );
 };
