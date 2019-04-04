@@ -3,11 +3,13 @@ import {
   cacheAdapterEnhancer,
   throttleAdapterEnhancer,
 } from 'axios-extensions';
-import { SERVER_URL_BASE as baseURL } from 'configs';
+import { SERVER_URL_BASE } from 'configs';
 import { HTTPMethods } from 'service/apiEntries';
 import { RequestOption } from 'types/internal';
-import { getAuthTOken as getAuthToken } from 'utils/auth';
+import { getAuthToken } from 'utils/auth';
 import { logError } from 'utils/logs';
+
+const baseURL = `${SERVER_URL_BASE}/api`;
 
 const axiosInstance = axios.create({
   baseURL,

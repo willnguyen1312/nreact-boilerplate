@@ -23,7 +23,7 @@ interface User {
 
 export interface UserContextType {
   user: User | undefined;
-  authenticateUser: (user: User) => void;
+  authenticateUser: (email: string, password: string) => void;
 }
 
 export const UserContext = React.createContext<UserContextType | null>(null);
@@ -36,11 +36,18 @@ interface User {
 const App = () => {
   const [user, setUser] = useState<User>();
 
-  const authenticateUser = (newUser: User) => {
-    setUser(newUser);
+  const authenticateUser = async (email: string, password: string) => {
+    // const newUser = await authService.login(email, password);
+    setUser({
+      firstName: '123',
+      lastName: '123',
+    });
   };
 
-  const userContextValue: UserContextType = { user, authenticateUser };
+  const userContextValue: UserContextType = {
+    user,
+    authenticateUser,
+  };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

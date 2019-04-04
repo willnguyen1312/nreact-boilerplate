@@ -8,7 +8,14 @@ export const HTTPMethods = {
   PATCH: 'PATCH',
 };
 
-// article services
+// authentication service
+export const authenEntryPoint: APIEntryPoint = {
+  url: '/login',
+  method: HTTPMethods.POST,
+  auth: false,
+};
+
+// article service
 export const articleEntryPoint: APIEntryPoint = {
   url: '/posts',
   method: HTTPMethods.GET,

@@ -9,22 +9,15 @@ import React, {
 
 const Login: FunctionComponent<RouteComponentProps> = () => {
   const { authenticateUser } = useContext(UserContext) as UserContextType;
-  const [username, setUsername] = useState('');
+  const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = useCallback(
-    (event: React.FormEvent<HTMLFormElement>) => {
+    async (event: React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
-      if (username === '123' && password === '123') {
-        authenticateUser({
-          firstName: 'Nam',
-          lastName: 'Nguyen',
-        });
-      } else {
-        alert('Oho');
-      }
+      await authenticateUser(email, password);
     },
-    [username, password, authenticateUser]
+    [email, password, authenticateUser]
   );
 
   return (
@@ -32,13 +25,13 @@ const Login: FunctionComponent<RouteComponentProps> = () => {
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">username</label>
+          <label htmlFor="email">email</label>
           <input
-            id="username"
+            id="email"
             type="text"
-            name="username"
-            placeholder="username"
-            value={username}
+            name="email"
+            placeholder="email"
+            value={email}
             onChange={useCallback(
               (event: React.ChangeEvent<HTMLInputElement>) => {
                 setUsername(event.target.value);
