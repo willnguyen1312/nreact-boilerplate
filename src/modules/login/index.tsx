@@ -14,13 +14,18 @@ const loginSchema = Yup.object().shape({
     .required('Required'),
 });
 
+interface LoginFormValues {
+  email: string;
+  password: string;
+}
+
 const Login: FunctionComponent<RouteComponentProps> = () => {
   const { authenticateUser } = useContext(UserContext) as UserContextType;
 
   return (
     <>
       <h1>Login</h1>
-      <Formik
+      <Formik<LoginFormValues>
         initialValues={{ email: '', password: '' }}
         validationSchema={loginSchema}
         onSubmit={async (values, { setSubmitting }) => {
