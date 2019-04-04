@@ -1,5 +1,5 @@
 import { RouteComponentProps } from '@reach/router';
-import { IUserContext, UserContext } from 'App';
+import { UserContext, UserContextType } from 'App';
 import React, {
   FunctionComponent,
   useCallback,
@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 const Login: FunctionComponent<RouteComponentProps> = () => {
-  const { authenticateUser } = useContext<IUserContext>(UserContext);
+  const { authenticateUser } = useContext(UserContext) as UserContextType;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

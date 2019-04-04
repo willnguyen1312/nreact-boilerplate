@@ -25,6 +25,7 @@
     "test:e2e": "cypress open",
     "test:e2e:ci": "start-server-and-test start http://localhost:3000 cy:run",
     "cy:run": "cypress run",
+    "type-check": "tsc",
     "lint": "eslint --ext .ts --ext .tsx src",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public"

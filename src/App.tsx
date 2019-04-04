@@ -21,12 +21,12 @@ interface User {
   lastName: string;
 }
 
-export interface UserContext {
+export interface UserContextType {
   user: User | undefined;
   authenticateUser: (user: User) => void;
 }
 
-export const UserContext = React.createContext<UserContext | null>(null);
+export const UserContext = React.createContext<UserContextType | null>(null);
 
 interface User {
   firstName: string;
@@ -40,7 +40,7 @@ const App = () => {
     setUser(newUser);
   };
 
-  const userContextValue: UserContext = { user, authenticateUser };
+  const userContextValue: UserContextType = { user, authenticateUser };
 
   return (
     <Suspense fallback={<div>Loading...</div>}>

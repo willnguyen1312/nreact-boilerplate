@@ -7,13 +7,12 @@ import { ArticleType } from './types';
 const Articles: any = () => {
   const [articles, setArticles] = useState();
 
-  async function fetchArticles() {
-    const data = await fetchArticlesService();
-
-    setArticles(data);
-  }
-
   useEffect(() => {
+    async function fetchArticles() {
+      const data = await fetchArticlesService();
+
+      setArticles(data);
+    }
     fetchArticles();
   }, []);
 
