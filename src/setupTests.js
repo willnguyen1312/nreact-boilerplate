@@ -3,3 +3,6 @@
 // this adds jest-dom's custom assertions
 import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
+
+// tslint:disable-next-line: no-console
+console.error = jest.fn();
