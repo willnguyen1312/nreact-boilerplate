@@ -24,11 +24,6 @@ export interface UserContextType {
 
 export const UserContext = React.createContext<UserContextType | null>(null);
 
-interface User {
-  firstName: string;
-  lastName: string;
-}
-
 const App = () => {
   const [user, setUser] = useState<User>();
 
