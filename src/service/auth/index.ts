@@ -1,7 +1,7 @@
 import { USER_PROFILE, USER_TOKEN } from 'constant';
-import { authenEntryPoint } from 'service/apiEntries';
+import { request } from 'service/api';
+import { authenEntryPoint } from 'service/api/apiEntries';
 import { RequestOption } from 'types/internal';
-import { request } from './api';
 
 class AuthService {
   public login = async (email: string, password: string) => {
