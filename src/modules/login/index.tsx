@@ -1,62 +1,52 @@
 import { RouteComponentProps } from '@reach/router';
 import { UserContext, UserContextType } from 'App';
-import React, {
-  FunctionComponent,
-  useCallback,
-  useContext,
-  useState,
-} from 'react';
+import { ErrorMessage, Field, Form, Formik } from 'formik';
+import React, { FunctionComponent, useContext } from 'react';
+import * as Yup from 'yup';
+
+const loginSchema = Yup.object().shape({
+  email: Yup.string()
+    .email('Invalid email')
+    .required('Required'),
+  password: Yup.string()
+    .min(2, 'Too Short!')
+    .max(50, 'Too Long!')
+    .required('Required'),
+});
 
 const Login: FunctionComponent<RouteComponentProps> = () => {
   const { authenticateUser } = useContext(UserContext) as UserContextType;
-  const [email, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-
-  const handleSubmit = useCallback(
-    async (event: React.FormEvent<HTMLFormElement>) => {
-      event.preventDefault();
-      await authenticateUser(email, password);
-    },
-    [email, password, authenticateUser]
-  );
 
   return (
     <>
       <h1>Login</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="email">email</label>
-          <input
-            id="email"
-            type="text"
-            name="email"
-            placeholder="email"
-            value={email}
-            onChange={useCallback(
-              (event: React.ChangeEvent<HTMLInputElement>) => {
-                setUsername(event.target.value);
-              },
-              []
-            )}
-          />
-        </div>
-        <div>
-          <label htmlFor="password">password</label>
-          <input
-            id="password"
-            type="password"
-            name="password"
-            value={password}
-            onChange={useCallback(
-              (event: React.ChangeEvent<HTMLInputElement>) => {
-                setPassword(event.target.value);
-              },
-              []
-            )}
-          />
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <Formik
+        initialValues={{ email: '', password: '' }}
+        validationSchema={loginSchema}
+        onSubmit={async (values, { setSubmitting }) => {
+          const { email, password } = values;
+          await authenticateUser(email, password);
+          setSubmitting(false);
+        }}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            <div>
+              <label htmlFor="email">Email</label>
+              <Field id="email" placeholder="email" type="email" name="email" />
+              <ErrorMessage name="email" component="div" />
+            </div>
+            <div>
+              <label htmlFor="password">Password</label>
+              <Field id="password" type="password" name="password" />
+              <ErrorMessage name="password" component="div" />
+            </div>
+            <button type="submit" disabled={isSubmitting}>
+              Submit
+            </button>
+          </Form>
+        )}
+      </Formik>
     </>
   );
 };
