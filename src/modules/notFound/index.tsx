@@ -1,7 +1,7 @@
 import { RouteComponentProps } from '@reach/router';
-import React from 'react';
+import React, { FC } from 'react';
 
-const NotFound = (_: RouteComponentProps) => {
+const NotFound: FC<RouteComponentProps> = () => {
   return <h1>NotFound</h1>;
 };
 

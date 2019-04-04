@@ -3,3 +3,5 @@
 // this adds jest-dom's custom assertions
 import 'jest-dom/extend-expect';
 import 'react-testing-library/cleanup-after-each';
+
+console.error = jest.fn();

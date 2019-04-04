@@ -1,66 +1,65 @@
 import { Router } from '@reach/router';
-import NavLink from 'components/NavLink';
+import ErrorBoudaryFallback from 'components/ErrorBoudaryFallback';
+import Nav from 'layout/Nav';
 import AuthRoute from 'modules/auth';
 import React, { Suspense, useState } from 'react';
-import styled from 'styled-components';
+import ErrorBoundary from 'react-error-boundary';
+import { Provider } from 'unstated';
 
-const Articles = React.lazy(() => import('./pages/Articles'));
 const Home = React.lazy(() => import('./pages/Home'));
 const Login = React.lazy(() => import('./pages/Login'));
 const Profile = React.lazy(() => import('./pages/Profile'));
+const Unstated = React.lazy(() => import('./pages/Unstated'));
 const NotFound = React.lazy(() => import('./pages/NotFound'));
 
-const Nav = styled.nav`
-  a {
-    text-decoration: none;
-  }
-`;
-
-interface IUser {
+interface User {
   firstName: string;
   lastName: string;
 }
 
-export interface IUserContext {
-  user: IUser;
-  authenticateUser: (user: IUser) => void;
+export interface UserContextType {
+  user: User | undefined;
+  authenticateUser: (email: string, password: string) => void;
 }
 
-export const UserContext = React.createContext<IUserContext | any>('user');
-
-interface IUser {
-  firstName: string;
-  lastName: string;
-}
+export const UserContext = React.createContext<UserContextType | null>(null);
 
 const App = () => {
-  const [user, setUser] = useState<IUser>();
+  const [user, setUser] = useState<User>();
 
-  const authenticateUser = (newUser: IUser) => {
-    setUser(newUser);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const authenticateUser = async (email: string, password: string) => {
+    // const newUser = await authService.login(email, password);
+    setUser({
+      firstName: '123',
+      lastName: '123',
+    });
   };
 
-  const userContextValue = { user, authenticateUser };
+  const userContextValue: UserContextType = {
+    user,
+    authenticateUser,
+  };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <UserContext.Provider value={userContextValue}>
-        <Nav>
-          <NavLink to="/">Home</NavLink>{' '}
-          <NavLink to="/articles">Articles</NavLink>{' '}
-          <NavLink to="/login">Login</NavLink>{' '}
-        </Nav>
+    <ErrorBoundary FallbackComponent={ErrorBoudaryFallback}>
+      <Provider>
+        <Suspense fallback={<div>Loading...</div>}>
+          <UserContext.Provider value={userContextValue}>
+            <Nav />
 
-        <Router>
-          <Home path="/" />
-          <Login path="login" />
-          <Articles path="articles" />
-          <AuthRoute as={Profile} path="profile" />
+            <Router>
+              <Home path="/" />
+              <Login path="login" />
+              <Unstated path="unstated" />
+              <AuthRoute as={Profile} path="profile" />
 
-          <NotFound default={true} />
-        </Router>
-      </UserContext.Provider>
-    </Suspense>
+              <NotFound default={true} />
+            </Router>
+          </UserContext.Provider>
+        </Suspense>
+      </Provider>
+    </ErrorBoundary>
   );
 };
 

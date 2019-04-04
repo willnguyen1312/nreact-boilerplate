@@ -1,9 +1,7 @@
-export const logError = (error: any) => {
-  // tslint:disable-next-line:no-console
+export const logError = error => {
   console.error(error);
 };
 
-export const logInfo = (error: any) => {
-  // tslint:disable-next-line:no-console
+export const logInfo = error => {
   console.info(error);
 };

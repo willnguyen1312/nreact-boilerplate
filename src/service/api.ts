@@ -3,11 +3,13 @@ import {
   cacheAdapterEnhancer,
   throttleAdapterEnhancer,
 } from 'axios-extensions';
-import { SERVER_URL_BASE as baseURL } from 'configs';
+import { SERVER_URL_BASE } from 'config';
 import { HTTPMethods } from 'service/apiEntries';
-import { IRequestOption } from 'types/internal';
-import { getAuthTOken as getAuthToken } from 'utils/auth';
+import { RequestOption } from 'types/internal';
+import { getAuthToken } from 'utils/auth';
 import { logError } from 'utils/logs';
+
+const baseURL = `${SERVER_URL_BASE}/api`;
 
 const axiosInstance = axios.create({
   baseURL,
@@ -31,11 +33,11 @@ export const request = async ({
   params = {},
   urlParam = '',
   cancelToken,
-}: IRequestOption) => {
+}: RequestOption) => {
   const { url, method, auth } = entryPoint;
   const authToken = getAuthToken();
 
-  let response: any;
+  let response;
   const headers = auth
     ? {
         Authorization: `Bearer ${authToken}`,

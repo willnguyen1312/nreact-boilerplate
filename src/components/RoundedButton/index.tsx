@@ -1,7 +1,7 @@
 import { ColorProperty } from 'csstype';
 import * as React from 'react';
 
-export interface IRoundedButtonProps {
+export interface RoundedButtonProps {
   color: ColorProperty;
   style?: React.CSSProperties;
   onClick: () => void;
@@ -14,7 +14,7 @@ export interface IRoundedButtonProps {
   primary?: boolean;
 }
 
-export function RoundedButton(props: IRoundedButtonProps) {
+export function RoundedButton(props: RoundedButtonProps) {
   return (
     <button
       style={{

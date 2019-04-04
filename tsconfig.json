@@ -1,6 +1,4 @@
 {
   "extends": "./tsconfig.dev.json",
-  "compilerOptions": {
-    "isolatedModules": true
-  }
+  "compilerOptions": {}
 }
