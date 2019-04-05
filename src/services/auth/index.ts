@@ -1,6 +1,6 @@
-import { USER_PROFILE, USER_TOKEN } from 'constant';
-import { request } from 'service/api';
-import { authenEntryPoint } from 'service/api/apiEntries';
+import { USER_PROFILE, USER_TOKEN } from 'consts';
+import { request } from 'services/api';
+import { authenEntryPoint } from 'services/api/apiEntries';
 import { RequestOption } from 'types/internal';
 
 class AuthService {

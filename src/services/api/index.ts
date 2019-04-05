@@ -3,8 +3,8 @@ import {
   cacheAdapterEnhancer,
   throttleAdapterEnhancer,
 } from 'axios-extensions';
-import { SERVER_URL_BASE } from 'config';
-import { HTTPMethods } from 'service/api/apiEntries';
+import { SERVER_URL_BASE } from 'configs';
+import { HTTPMethods } from 'services/api/apiEntries';
 import { RequestOption } from 'types/internal';
 import { getAuthToken } from 'utils/auth';
 import { logError } from 'utils/logs';
